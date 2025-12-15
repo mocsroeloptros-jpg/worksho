@@ -19,6 +19,10 @@ const AdminDashboard = () => {
     navigate("/login");
   };
 
+  const handleGoToReports = () => {
+    navigate("/admin/reports");
+  };
+
   return (
     <Layout>
       <div className="py-10">
@@ -59,7 +63,7 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Access sales, performance, and booking reports.</p>
-              <Button className="mt-4 w-full">Go to Reports</Button>
+              <Button className="mt-4 w-full" onClick={handleGoToReports}>Go to Reports</Button>
             </CardContent>
           </Card>
 
