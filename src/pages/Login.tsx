@@ -1,12 +1,13 @@
 "use client";
 
 import Layout from "@/components/Layout";
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/lib/auth";
+import { useAppStore } from "@/lib/store"; // Import the new store
 import { useNavigate } from "react-router-dom";
 import { showSuccess, showError } from "@/utils/toast";
 
@@ -14,19 +15,28 @@ const Login = () => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   const { login } = useAuth();
+  const { workers, _initializeMockData } = useAppStore(); // Get workers and initializer from store
   const navigate = useNavigate();
+
+  useEffect(() => {
+    _initializeMockData(); // Initialize mock data when component mounts
+  }, [_initializeMockData]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // This is a mock login for demonstration. In a real app, you'd call an API.
-    if (username === "admin" && password === "password") {
-      login({ id: "1", username: "admin", full_name: "Admin User", role: "admin", is_active: true });
-      showSuccess("Logged in as Admin!");
-      navigate("/admin");
-    } else if (username === "worker" && password === "password") {
-      login({ id: "2", username: "worker", full_name: "Worker User", role: "worker", is_active: true });
-      showSuccess("Logged in as Worker!");
-      navigate("/worker");
+    
+    // Find worker in the store
+    const foundWorker = workers.find(w => w.username === username);
+
+    // Mock password check (in a real app, this would be hashed and checked against a backend)
+    if (foundWorker && password === "password") { // Assuming "password" is the universal mock password
+      login(foundWorker);
+      showSuccess(`Logged in as ${foundWorker.full_name}!`);
+      if (foundWorker.role === 'admin') {
+        navigate("/admin");
+      } else {
+        navigate("/worker");
+      }
     } else {
       showError("Invalid credentials.");
     }
