@@ -19,6 +19,18 @@ const WorkerDashboard = () => {
     navigate("/login");
   };
 
+  const handleGoToSchedule = () => {
+    navigate("/worker/schedule");
+  };
+
+  const handleGoToServices = () => {
+    navigate("/worker/services");
+  };
+
+  const handleGoToEarnings = () => {
+    navigate("/worker/earnings");
+  };
+
   return (
     <Layout>
       <div className="py-10">
@@ -41,7 +53,7 @@ const WorkerDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">View your upcoming appointments and availability.</p>
-              <Button className="mt-4 w-full">View Schedule</Button>
+              <Button className="mt-4 w-full" onClick={handleGoToSchedule}>View Schedule</Button>
             </CardContent>
           </Card>
 
@@ -53,7 +65,7 @@ const WorkerDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Manage the services you offer and their details.</p>
-              <Button className="mt-4 w-full">Manage Services</Button>
+              <Button className="mt-4 w-full" onClick={handleGoToServices}>Manage Services</Button>
             </CardContent>
           </Card>
 
@@ -65,7 +77,7 @@ const WorkerDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Track your earnings and performance metrics.</p>
-              <Button className="mt-4 w-full">View Earnings</Button>
+              <Button className="mt-4 w-full" onClick={handleGoToEarnings}>View Earnings</Button>
             </CardContent>
           </Card>
         </div>

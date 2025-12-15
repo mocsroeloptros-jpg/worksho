@@ -23,6 +23,22 @@ const AdminDashboard = () => {
     navigate("/admin/reports");
   };
 
+  const handleGoToWorkers = () => {
+    navigate("/admin/workers");
+  };
+
+  const handleGoToServices = () => {
+    navigate("/admin/services");
+  };
+
+  const handleGoToCalendar = () => {
+    navigate("/admin/calendar");
+  };
+
+  const handleGoToSettings = () => {
+    navigate("/admin/settings");
+  };
+
   return (
     <Layout>
       <div className="py-10">
@@ -43,7 +59,7 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">View, add, edit, and remove worker accounts.</p>
-              <Button className="mt-4 w-full">Go to Workers</Button>
+              <Button className="mt-4 w-full" onClick={handleGoToWorkers}>Go to Workers</Button>
             </CardContent>
           </Card>
 
@@ -53,7 +69,7 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Define and update salon services and pricing.</p>
-              <Button className="mt-4 w-full">Go to Services</Button>
+              <Button className="mt-4 w-full" onClick={handleGoToServices}>Go to Services</Button>
             </CardContent>
           </Card>
 
@@ -73,7 +89,7 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Manage appointments and worker schedules.</p>
-              <Button className="mt-4 w-full">Go to Calendar</Button>
+              <Button className="mt-4 w-full" onClick={handleGoToCalendar}>Go to Calendar</Button>
             </CardContent>
           </Card>
 
@@ -83,7 +99,7 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Configure application settings and preferences.</p>
-              <Button className="mt-4 w-full">Go to Settings</Button>
+              <Button className="mt-4 w-full" onClick={handleGoToSettings}>Go to Settings</Button>
             </CardContent>
           </Card>
         </div>
