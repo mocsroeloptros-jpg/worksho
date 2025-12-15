@@ -1,18 +1,17 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+"use client";
 
-import { MadeWithDyad } from "@/components/made-with-dyad";
+import Layout from "@/components/Layout";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">
-          Start building your amazing project here!
+    <Layout>
+      <div className="text-center py-10">
+        <h2 className="text-3xl font-semibold mb-4">Welcome to Your New App!</h2>
+        <p className="text-lg text-muted-foreground">
+          This is your main content area. Let's start building something great.
         </p>
       </div>
-      <MadeWithDyad />
-    </div>
+    </Layout>
   );
 };
 
